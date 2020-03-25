@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="styLesheet" type="text/css">
+
+<style>
+form {
+	border: 2px solid blue;
+	padding: 20px;
+	line-height: 30px;
+}
+h1{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+</style>
+</head>
+<body>
+	<pre>
+	<h1>get</h1>
+	&lt;form action="input.jsp" method="get"&gt;
+	데이터 입력후 전송 하면 Url 주소 뒤에 ?쿼리스트링이 붙는다.
+	http://localhost/webpro/0323/Input.jsp?id=korea&pass=1234
+</pre>
+	<!--get은 아이디 비밀번호 로그기록이 웹 링크에 보여서 post방식으로 보안해줘야함  -->
+	<form action="input.jsp" method="get">
+		아이디<input type="text" name="id"><br>
+		비밀번호<input type="password" name="pass"><br>
+	성별<input type="radio" name="gender" value="male">남자	
+	<input type="radio" name="gender" value="female">여자<br>
+	 <input type="submit"> <input type="reset">
+	
+		<!--input 타입의 submit과 리셋은 텍스트 벨류 값을 안넣어도 자동으로 생김 필수x -->
+		<!--  submit이 action=" "안의 방식으로 들어간다. -->
+	</form>
+	<hr>
+	<pre>
+	<h1>post</h1>
+	&lt;form action="input.jsp" method="post"&gt;
+	데이터 입력후 전송 하면
+	http://localhost/webpro/0323/Input.jsp
+	입력데이터는 request header속에 감춰서 서버로 보낸다.
+	</pre>
+	<form action="input.jsp" method="post">
+	아이디<input type="text" name="id">
+	<br> 
+	비밀번호 <input type="password" name="pass">
+	<br>
+	성별<input type="radio" name="gender" value="남자">남자	
+	<input type="radio" name="gender" value="여자">여자
+	<br>
+	좋아하는 과일
+	<input type="checkbox" name="fruit" value="사과">사과
+	<input type="checkbox" name="fruit" value="복숭아">복숭아
+	<input type="checkbox" name="fruit" value="참외">참외
+	<input type="checkbox" name="fruit" value="수박">수박
+	<input type="checkbox" name="fruit" value="딸기">딸기
+	<br>
+	<input type="submit" value="전송"> <input type="reset" value="리셋">
+	<br>
+	
+	</form>
+</body>
+</html>
