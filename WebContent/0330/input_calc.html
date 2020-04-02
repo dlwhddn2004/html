@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function calc(op){
+		v1 = document.getElementById("fir").value;
+		v2 = document.getElementById("sec").value;
+
+		if(op == "+"){
+			v1 = parseInt(v1);
+			v2 = parseInt(v2);
+			res = v1 + v2;
+		}else if(op =="-"){
+			res = v1 - v2;
+		}else if(op =="*"){
+			res = v1 * v2;
+		}else if(op =="/"){
+			res = v1 / v2;
+		}
+		document.getElementById("hap").value = res;
+	}
+</script>
+
+</head>
+<body>
+ 첫번째 수 : <input id ="fir" type="xt"><br>
+ 두번째 수  : <input id ="sec" type="text"><br>
+ 결	과	: <input id= "hap" type="text"><br>
+ <input type="button" value="덧셈" onclick="calc('+')"> 
+ <input type="button" value="빼기" onclick="calc('-')"> 
+ <input type="button" value="곱하기" onclick="calc('*')"> 
+ <input type="button" value="나누기" onclick="calc('/')"> 
+</body>
+</html>

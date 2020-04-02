@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+	 function calc(){
+		//prompt 를 이용, 두개의 수와 연산자를 입력
+		x = parseInt(prompt("첫번 째 수 입력"));
+		y = parseInt(prompt("두번 째 수 입력"));
+
+		op = prompt("연산자 입력")
+		
+ 		
+ 		if(op =="+"){
+ 		 res= x+ y;
+ 		}
+ 		else if(op == "-"){
+ 			res= x - y;	
+ 		}else if (op == "*"){
+ 			res= x * y;
+ 		}else if (op =="/"){
+ 			res= x / y;
+ 		}
+		str = x + " "+ op +" " + y + " = " + res ;
+		document.getElementById('result').innerHTML = str;
+	}
+</script>
+<style>
+div{
+	border: 1px dotted red;
+	margin: 10px;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<input type="button" value="실행" onclick="calc()">
+
+<br><br>
+<div id="result"></div>
+</body>
+</html>

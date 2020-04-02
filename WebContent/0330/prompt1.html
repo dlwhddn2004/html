@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet" type="text/css">
+	<style>
+	div{
+	width: 50%;
+	height: 50px;
+	padding: 10px;
+	margin: 20px;
+	border: 1px dotted red;
+	font-size: 1.5em;
+	}
+	</style>
+	<script>
+	window.onload = function(){
+		/*코드는 위에서 아래로 읽는데 body의 div를 스크립트가 인식 못함 그래서 window.inloade를 써줌 */
+ x = prompt("첫번째 수 입력");
+ y = prompt("두번쨰 수 입력");
+ x = parseInt(x); /* 연산자 + 는 무조건 parseInt 해줘야 더해진다.아니면 String 타입으로 인식함 */
+ y = parseInt(y);
+//alert(x + y);
+ 		//body태그 안의 div요소에 결과 출력 ex) 5+5 = 10
+ 		//div요소로 접근해보자
+ 		result = document.getElementById('result');
+ 		hap = x+ y;
+ 		//div 요소에 출력하기 -innertHTML , textContent
+ 		result.innerHTML = x +" + "+ y +" = " +hap;
+	}
+ 		</script> 
+
+	</head>
+<body>
+<pre>
+ window.onload = function(){}
+ 스크립트보다 body태그에 의한 document가 생성되어
+ window에 실행 되어 로드 되어 로드 된후에 function을 실행한다
+</pre>
+	<div id="result"></div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet">
+<script>
+	function calc() { /* 버튼을 누를때 실행됨으로 굳이 window 안써줘도됨 */
+		/*html요소에 접근 - 입력값 가져오기 (value)  */
+		v1 = document.getElementById("fir").value;
+		v2 = document.getElementById("sec").value;
+		hap = parseInt(v1) + parseInt(v2);
+		//input 요소에 출력 (value)
+		 document.getElementById("sum").value = hap;
+	}
+</script>
+</head>
+<body>
+<pre>
+두개의 수를 입력후  계산 버튼 클릭시
+입력한 두수의 덧셈을 수행한다.
+input 요소의 입력값 가져오기 : .value 
+input 요소의  값 출력하기 : value = 값
+</pre>
+ 첫번째 수 : <input id ="fir" type="text"><br>
+ 두번째 수  : <input id ="sec" type="text"><br>
+ 합	계	: <input id= "sum" type="text"><br>
+ <input id="result" type="button" value="계산" onclick="calc()"> 
+</body>
+</html>
