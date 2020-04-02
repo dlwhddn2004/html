@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet">
+<script type="text/javascript">
+function calc(a){
+	xx = parseInt(document.getElementById('x').value);
+	yy = parseInt(document.getElementById('y').value);
+	
+	if(a == '+'){
+		vres = sum();
+	}else if(a == '-'){
+		vres = sub();
+	}else if(a == '*'){
+		vres = multi();
+	}else if(a == '/'){
+		vres = devide();
+	}
+	res = xx + " "+  a + " " + yy + " = " + vres;
+	document.getElementById('result1').innerHTML = res; 
+}
+
+function sum(){
+	var b = xx+ yy; /* a를 calc가 받으니 쓰면 안됨 */
+	 return b;
+}
+
+function sub(){
+	var c= xx-yy;
+	return c;
+}
+
+function multi(){
+	return xx * yy;
+}
+
+function devide(){
+	return xx / yy;
+}
+
+function calc2(a) {
+    switch (a) {
+    case "+":
+       document.getElementById('result1').innerHTML = sum();
+       break;
+    case "-":
+       document.getElementById('result1').innerHTML = sub();
+       break;
+    case "*":
+       document.getElementById('result1').innerHTML = multi();
+       break;
+    case '/':
+       document.getElementById('result1').innerHTML = devide();
+       break;
+    }
+ }
+</script>
+
+</head>
+<body>
+<div class="box">
+입력1<input type="text" id="x"><br>
+입력2<input type="text" id="y"><br>
+<button type="button" onclick="calc('+')">실행+</button>
+<button type="button" onclick="calc('-')">실행-</button>
+<button type="button" onclick="calc('*')">실행*</button>
+<button type="button" onclick="calc('/')">실행/</button>
+<br>
+ 	  <button onclick="calc2('+')">실행+</button>
+      <button onclick="calc2('-')">실행-</button>
+      <button onclick="calc2('*')">실행*</button>
+      <button onclick="calc2('/')">실행/</button>
+
+<div id="result1"></div>
+</div>
+
+</body>
+</html>

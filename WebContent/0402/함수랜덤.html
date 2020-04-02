@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet">
+<script type="text/javascript">
+function rendProc(){
+
+	
+	res="";
+	
+	for(var i=0; i<5; i++){
+	 res+= Math.floor(Math.random() *50 +1) + " " ;	
+	}
+	res+= "<br>"
+	document.getElementById('result1').innerHTML += res;
+	
+}
+
+</script>
+</head>
+<body>
+<div class="box">
+	<h2>랜덤 발생</h2>
+	-버튼을 클릭하면 randProc() 함수 호출<br>
+	-1~50 사이의 랜덤수를 5개씩 발생
+	<input type="button" value="시작" onclick="rendProc()">
+	
+	<div id="result1"></div>
+</div>
+</body>
+</html>
