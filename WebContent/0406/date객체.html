@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+a1 = new Date();
+	function proc1() {
+		//let a1 = new Date();
+		//let a1 = new Date(123124123123);
+		//let a1 = new Date("1900.10.01");
+		let a1 = new Date(2000,05-1,11,12,30); //시스템에는 00월이 존재해서 05 -> 6월로 나옴 
+			res = `${a1.toLocaleString()} <br>`;
+			res += `${a1.toLocaleDateString()} <br>`;
+		document.getElementById('result1').innerHTML= res;
+	}
+	
+	function proc2(){
+		alert(a1.getDay());
+
+		day = a1.getDay();
+		switch (day) {
+		case 0:
+			res ="일요일";
+			break;
+
+		case 1:
+			res ="월요일";
+			break;
+
+		case 2:
+			res ="화요일";
+			break;
+
+		case 3:
+			res ="수요일";
+			break;
+
+		case 4:
+			res ="목요일";
+			break;
+
+		case 5:
+			res ="금요일";
+			break;
+
+		case 6:
+			res ="토요일";
+			break;
+
+		default:
+			res = "요일아니다";
+			break;
+		}
+		
+		document.getElementById('result2').innerHTML=` ${a1.toLocaleString()} <br>`;
+		document.getElementById('result2').innerHTML+= res; 
+	}
+	
+	function proc3(){
+		arr =["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+		
+		res = arr[a1.getDay()];
+		
+		//document.getElementById('result2').innerHTML = res;
+		document.getElementById('result2').innerHTML=` ${a1.toLocaleString()} <br>`;
+		document.getElementById('result2').innerHTML+= res; 
+	}
+
+	function proc4(){
+		//태어난 날짜
+		let my= new Date("1994,09,15");
+		
+		const today = new Date();
+
+		//두 날짜 사이의 경과시간을 구한다.
+		m1 = my.getTime(); //millsec
+		m2 = today.getTime();
+		m3 = m2 -m1;
+
+		let res = `millsec : ${m3} <br>`;
+			res += `실제 초 ${m3 /1000} <br>`; //실제 초  m3/1000/60 실제 분 , 
+			res+= `실제 분 ${m3 /1000/60} <br>`;
+			res+= `실제 시간 ${m3 /1000/60/60} <br>`;
+			res+= `실제 날수 ${m3 /1000/60/60/24} <br>`;
+			res+=`실제 년수 ${m3 /1000/60/60/24/365} <br>`;
+		document.getElementById('result4').innerHTML = res;
+	}
+
+		function proc5() {
+			const today= new Date();
+			
+			//오늘의 millsec
+			const to = today.getTime();
+			
+			//오늘 날짜에 100일에 대한 millsec 값을 구한다.
+			const m100 = 100 *24* 60* 60* 1000;			
+			//오늘의 milsec에 100일의 milsec를 더한다.
+			const tom100 = to + m100;
+			//구해진 millsec로부터 날짜를 구한다 -date를 생성
+			let a= new Date(tom100);
+			let res = `오늘 : ${today.toLocaleDateString()} <br>`;
+				res += `100일 후 : ${a.toLocaleDateString()} <br>`;
+			document.getElementById('result5').innerHTML = res;
+	
+		}
+</script>
+</head>
+<body>
+
+<div class="box">
+ <h2>date객체</h2>
+ 		let a1 = new Date();<br>
+		let a1 = new Date(123124123123);<br>
+		let a1 = new Date("1900.10.01");<br>
+		let a1 = new Date(2000,05-1,11,12,30); //시스템에는 00월이 존재해서 05 -> 6월로 나옴 <br>
+ <button type="button" onclick="proc1()">실행</button>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+      <h2>요일 구하기</h2>
+      getDay() : 0 : 일요일 ~ 6 : 토요일
+      <br>
+      arr =["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];<br>
+		
+		res = arr[a1.getDay()];<br>
+      <button type="button" onclick="proc2()">실행</button>
+      <button type="button" onclick="proc3()">배열이용한 요일</button>
+      <div id="result2"></div>
+   </div>
+
+<div class="box">
+      <h2>경과시간구하기</h2>
+      getTime() : 결과값이 millsec로 반환된다. <br>
+	 - 태어난 년도에서 오늘까지 경과 날 수 구하기 <br>
+
+      <button type="button" onclick="proc4()">실행</button>
+      <div id="result4"></div>
+   </div>
+
+   <div class="box">
+	<h2>경과시간구하기</h2>
+	 오늘이 기준으로 100일 후의 날짜 구하기  
+	 
+	 <br>
+     <br>
+
+	<button type="button" onclick="proc5()">실행</button>
+	<div id="result5"></div>
+ </div>
+</body>
+</html>

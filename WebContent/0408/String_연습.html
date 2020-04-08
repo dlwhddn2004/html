@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+    function proc1() {
+        //주민번호 입력 -prompt
+        let number = prompt("주민번호입력하세요");
+        //주민번호 앞6자리에서 각각 2자리씩 추출한다. 99 10 10
+        //substr, substring, slice
+        const first = parseInt(number.substr(0,2));
+        const sec = number.substr(2,2);
+        const three = number.substr(4,2);
+        //주민번호 뒤1자리 추출 a= '1'
+        // substr, substring , slice 
+        const a = parseInt(number.charAt(6));
+        //a값이 1이거나 2이면  y= 1900 , 3이거나 4이면 y= 2000
+       let y=0;
+       gender ="";
+        if(a ==1){
+            gender=`남자`;
+        }else if(a ==2){
+            gender =`여자`;
+        }else{
+            gender=`당신은 외계인`;
+        }
+
+       if(a ==1 || a ==2)
+         y = 1900 +first;
+        else{
+            y = 2000;
+        }
+
+        //res = 생년원일 += 성별 += 나이 출력
+        age = 2020 -y;
+        res = `년도 ${y} 월일${sec} 요일${three} <br> 성별 ${gender}<br> 나이 ${age}`;
+
+        document.getElementById('result1').innerHTML=res;
+    }
+        function proc2() {
+            let number = (prompt("주민번호입력"));
+            aa = `234567892345`;
+            
+            let sum=0;
+
+            for(let i=0; i<=number.length-2; i++){
+               sum +=number.substr(i,1) * aa.substr(i,1);
+            }
+            console.log(sum);
+               const two = sum%11;
+               const three = 11- two;
+              
+               let chk;
+                if(three == 10){
+                    chk = 0;
+                }else if(three == 11){
+                    chk = 1;
+                }else{
+                    chk= three;
+                }
+
+                bb= number.charAt(12);
+                 let res="";
+                if(chk == bb){
+                    res =`맞는 주민번호`;
+                }else{
+                    res = `틀린 주민번호`;
+                }
+
+                document.getElementById('result2').innerHTML = res;
+        }
+        
+</script>
+</head>
+<body>
+
+<div class="box">
+ <h2>생년원일과 성별 나이구하기</h2>
+ - 주민번호를 입력한다 991010-1
+ - 문자 추출하기 -substring(),substr(),slice(),charAt()<br>
+ <button type="button" onclick="proc1()">실행</button>
+ <div id="result1"></div>
+</div>
+
+<div class="box">
+    <h2>주민번호 유효성 검사</h2>
+    - 주민번호를 입력한다(타이푼없이) 9910101 <br>
+    - 문자 추출하기 -substring(),substr(),slice(),charAt()<br>
+    <button type="button" onclick="proc2()">실행</button>
+    <div id="result2"></div>
+   </div>
+</body>
+</html>

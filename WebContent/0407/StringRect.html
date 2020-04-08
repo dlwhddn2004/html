@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../CSS/mystyle.css" rel="stylesheet" type="text/css">
+        <script>
+            const str =`우리 나라 좋은 나라 대한 민국`;
+            
+            function proc1() {
+                
+                // let a = str.indexOf("모두");
+                // let res = `모두의 위치 ${a} `;
+                let idx=0;
+                const a ="나라";
+                let check = false;
+                let res ="";
+                
+                do {
+                    idx = str.indexOf(a,idx);
+                    if(idx === -1) break;
+
+                    res += `${a}의 나라의 위치 ${idx} <br>`;
+                    
+                    idx = idx + a.length;
+                    check =true;
+                } while (check);
+
+                if(!check){
+                    res = `찾는데이터는 없다.`;
+                }
+
+                document.getElementById('result1').innerHTML = res;
+            
+            }
+                function proc2() {
+                    let index =4;
+
+                    let a = str.charAt(index); //첫단어
+                    let b = str.charCodeAt(index); //유니코드
+
+                    let res =`charAt(${index}) ${a} <br>`;
+                        res += `charCodeAt(${index}) ${b} <br>`;
+
+                        document.getElementById('result1').innerHTML =res;
+                }
+                    function proc3() {
+                        let res ="";
+                        
+                        const start =3;
+                        const length =5;
+                        const a = str.substr(start,length);
+                        res =`str.substr(${start},${length}) 결과 => ${a}<br>`;
+                        document.getElementById('result2').innerHTML = res;
+                    }
+
+                    function proc4() {
+                        //substring;
+                        const start =3;
+                        const end   =7;
+                        const a = str.substring(start,end); //3 >= a <7 사이
+                        res =`str.substr(${start},${end}) 결과 => ${a}<br>`;
+                        document.getElementById('result2').innerHTML = res;
+                    }
+
+                    function proc5() {
+                        const start =3;
+                        const end   =7;
+                        const a = str.slice(start,end); //3 >= a <7 사이
+                        res =`str.slice(${start},${end}) 결과 => ${a}<br>`;
+                        document.getElementById('result2').innerHTML = res;
+                    }
+
+                    function proc6() {
+                       const a= str.length;
+                         let b=str.split(" ");
+                        res =`문자열 길이 : ${a} <br>`;
+                        res+=`배열로 변환 (split(' '): ${b} <br>`;
+
+                        for (let i = 0;  i< b.length; i++) {
+                            res+= `b ${i} : ${b[i]}`; //공백기준으로 잘라서 배열로 변환.
+                            
+                        }
+                        document.getElementById('result2').innerHTML = res;
+                    }
+
+                        function proc7() {
+                               //replace
+      
+                             // 입력한 값 가져오기
+                             a = document.getElementById('area').value;
+                             res = a.replace(/\r/g, "<br>").replace(/\n/g, "<br>");
+                                 //div에 입력하기
+                            document.getElementById('result3').innerHTML = res;
+
+                        }
+        </script>
+</head>
+<body>
+
+    <div class="box">
+        <h2>위치나 글자 찾기</h2>
+        str = 우리 나라 좋은 나라 대한 민국
+        indexOf(item, start) : item의 위치를 반환<br>
+        charAt(idx) : idx번째의 글자를 반환<br>
+        charCodeAt(idx) : idx번째의 유니코드(ascii)반환<br>
+
+
+    <button type="button" onclick="proc1()">실행</button>
+    <button type="button" onclick="proc2()">실행</button>
+    
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h2>글자 추출 및 분리</h2>
+        str = 우리 나라 좋은 나라 대한 민국
+        substr(start, length) : start에서 length(길이)만큼 추출<br>
+        substring(start, end) : start에서 end사이의 문자를 추출<br>
+        slice(start,end)      : start에서 end사이의 문자를 자르기<br>
+        split(start,end)      : 공백기준으로 잘라 배열로 만듬<br>
+
+        
+    <button type="button" onclick="proc3()">실행</button>
+    <button type="button" onclick="proc4()">실행</button>
+    <button type="button" onclick="proc5()">실행</button>
+    <button type="button" onclick="proc6()">실행</button>
+        <div id="result2"></div>
+    </div>
+
+    <div class="box">
+        <h2>바꾸기</h2>
+        <textarea id ="area" rows="10" cols="30"></textarea>
+        <br>
+        <button type="button" onclick="proc7()">replace실행</button>
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

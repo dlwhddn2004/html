@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../CSS/mystyle.css" rel="stylesheet" type="text/css">
+    <script>
+        function proc1() {
+            //선택한 날짜의 값을 가져오기 -value(String)
+          pay =  document.getElementById('pday').value;
+            //선택한 날짜로 Date객체 생성
+            let choiceday = new Date(pay);
+            //오늘의 Date객체 생성
+            const today = new Date();
+            //getTime을 이용해서 두 날짜 사이의 간격을 구한다
+            //오늘 - 선택 날짜 => getTime() - 선택날짜.getTime() - millisec
+           let a = today.getTime() - choiceday.getTime();
+            //day의 값을 이용해서 날수를 구한다
+            day = a/1000/60/60/24;
+
+            res="";
+            
+            //구한 날수가 7보다 크면 
+            if(day > 7){
+                res =`7일이 지났으니 교환이 불가능합니다`;
+            }else{
+                res = `교환이나 반품이 가능합니다.`
+            }
+            document.getElementById('result1').innerHTML =res;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>경과시간 구하기</h2>
+        - 구입날짜 <br>
+        - 7일이 지났으면 교환이나 반품 불가<br>
+
+        구입날짜 : <input type="date" id="pday" value="payday">
+        <br><br>
+        <button type="button" onclick="proc1()">실행</button>
+             <div id="result1"></div>
+    </div>
+    
+</body>
+</html>
